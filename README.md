@@ -74,7 +74,7 @@ function doNothingBetter<This, Args extends any[], Return>(
 
 
 
-## Step 3
+## SOLUTION - Step 2
 
 ```
 function keepDoingYou<This, Args extends any[], Return>(
