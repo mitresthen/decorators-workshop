@@ -31,3 +31,47 @@ linux/mac: tsc Main.ts && node Main.ts
 
 Windows: tsc Main.ts ; node Main.ts
 ```
+
+
+
+
+
+
+
+## Step 2
+
+```
+function doNothingBetter<This, Args extends any[], Return>(
+    originalMethod: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
+) {
+    function replacementMethod(this: This, ...args: Args) {
+    }
+    return replacementMethod;
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+# Step 3
+
+```
+function keepDoingYou<This, Args extends any[], Return>(
+    originalMethod: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
+) {
+    function replacementMethod(this: This, ...args: Args) {
+        return originalMethod.call(this, args)
+    }
+    return replacementMethod;
+}
+```
