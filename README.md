@@ -89,6 +89,25 @@ function keepDoingYou<This, Args extends any[], Return>(
 ```
 
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 
 ## SOLUTION - Task 3
 
@@ -116,5 +135,41 @@ warmth() {
     
 ```
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
+## SOLUTION - Task 4
+
+```
+  function log<This, Args extends any[], Return>(
+    originalMethod: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
+) {
+    const name = String(context.name);
+    const id = randomUUID();
+    function replacementMethod(this: This, ...args: Args) {
+        console.log(`[Time: ${new Date().toISOString()}, ID: ${id}]: Calling '${name}' with args ${JSON.stringify(args)}`)
+        const result = originalMethod.call(this, args)
+        console.log(`[Time: ${new Date().toISOString()}, ID: ${id}]: Finished executing '${name}'`)
+        return result;
+    }
+    return replacementMethod;
+} 
+```
 
