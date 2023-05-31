@@ -1,7 +1,7 @@
 # decorators-workshop
 
 
-## Step 1
+## Task 1
 
 ```
 class House {
@@ -38,7 +38,7 @@ Windows: tsc Main.ts ; node Main.ts
 
 
 
-## Step 2
+## Task 2
 
 ```
 function doNothingBetter<This, Args extends any[], Return>(
@@ -74,7 +74,7 @@ function doNothingBetter<This, Args extends any[], Return>(
 
 
 
-## SOLUTION - Step 2
+## SOLUTION - Task 2
 
 ```
 function keepDoingYou<This, Args extends any[], Return>(
@@ -87,3 +87,34 @@ function keepDoingYou<This, Args extends any[], Return>(
     return replacementMethod;
 }
 ```
+
+
+
+## SOLUTION - Task 3
+
+```
+function doItTwice<This, Args extends any[], Return>(
+    originalMethod: (this: This, ...args: Args) => Return,
+    context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
+) {
+    context.name
+    function replacementMethod(this: This, ...args: Args) {
+        originalMethod.call(this, args)
+        originalMethod.call(this, args)
+    }
+    return replacementMethod;
+} 
+
+
+
+@doItTwice
+@doItTwice
+@doItTwice
+warmth() {
+    this.coziness = this.coziness +1;
+}
+    
+```
+
+
+
