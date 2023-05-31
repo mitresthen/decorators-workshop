@@ -17,4 +17,17 @@ class House {
     }
 }
 
+const h = new House(50)
+console.log(`The current coziness is ${h.coziness}`)
+
+
+h.warmth();
+console.log(`The current cosiness is ${h.coziness}`)
+```
+
+
+```
+linux/mac: tsc Main.ts && node Main.ts
+
+Windows: tsc Main.ts ; node Main.ts
 ```
