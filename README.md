@@ -53,16 +53,16 @@ function doNothingBetter<This, Args extends any[], Return>(
 
 
 
+\
+\
+\
+\
+\
+\
+\
 
 
-
-
-
-
-
-
-
-# Step 3
+## Step 3
 
 ```
 function keepDoingYou<This, Args extends any[], Return>(
