@@ -6,7 +6,6 @@ function stopErrorAndLog<This, Args extends any[], Return>(
     context: ClassMethodDecoratorContext<This, (this: This, ...args: Args) => Return>
 ) {
     const name = String(context.name);
-    const id = randomUUID();
     function replacementMethod(this: This, ...args: Args) {
         try {
             return originalMethod.apply(this, args)
