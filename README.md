@@ -11,13 +11,13 @@ npm  install  -g  typescript
 ### Linux
 
 ```
-linux/mac: tsc Main.ts && node Main.ts
+linux/mac: tsc Main.ts && node Main.js
 ```
 
 ### Windows
 
 ```
-tsc Main.ts ; node Main.ts
+tsc Main.ts ; node Main.js
 ```
 
 
