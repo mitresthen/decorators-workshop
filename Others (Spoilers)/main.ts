@@ -1,7 +1,4 @@
 
-// const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-
 function loggedMethod(headMessage = "LOG:") {
     return function actualDecorator(
       originalMethod: any,
@@ -18,33 +15,7 @@ function loggedMethod(headMessage = "LOG:") {
     };
   }
   
-   function CriticalLog(
-      originalMethod: any,
-      context: ClassMethodDecoratorContext
-    ) {
-      const methodName = String(context.name);
-      function replacementMethod(this: any, ...args: any[]) {
-        console.log(`----VERY IMPORTANT----`);
-        const result = originalMethod.call(this, ...args);
-        console.log(`THANK YOU FOR YOUR ATTENTION`);
-        return result;
-      }
-      return replacementMethod;
-    };
   
-    function SomewhatImportantLog(
-      originalMethod: (a: number, b: number) => number,
-      context: ClassMethodDecoratorContext
-    ) {
-      const methodName = String(context.name);
-      function replacementMethod(this: any, ...args: any[]) {
-        console.log(`--Please notice me--`);
-        const result = originalMethod.call(this, ...args);
-        console.log(`thx senpai`);
-        return result;
-      }
-      return replacementMethod;
-    };
   
     function SquareIt(
       originalMethod: (a: number, b: number) => number,
@@ -52,11 +23,10 @@ function loggedMethod(headMessage = "LOG:") {
     ) {
       const methodName = String(context.name);
       function replacementMethod(this: any, ...args: any[]) {
-        console.log(`--CALCULATING SQUARE, HOLD ON!!!!--`);
+        console.log(`--CALCULATING SQUARE----`);
         const result = originalMethod.call(this, ...args);
         const squaredResult = result*result;
         console.log(`THE SQUARED NUMBER IS: ${squaredResult}`);
-        console.log(`I HOPE YOU WERE HAPPY WITH THE BIG NUMBER YOU GOT :O`);
         return squaredResult;
       }
       return replacementMethod;
